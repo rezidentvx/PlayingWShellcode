@@ -18,7 +18,7 @@ int __stdcall HookedMessageBox(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT 
 	return MessageBoxA(NULL, lpText, lpCaption, uType);
 }
 
-int main()
+int HookMessageBox()
 {
 	// show messagebox before hooking
 	MessageBoxA(NULL, "hi", "hi", MB_OK);

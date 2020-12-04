@@ -21,6 +21,9 @@
     <ClCompile Include="..\PlayingWShellcode\PwSC.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HookMessageBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hook.h">

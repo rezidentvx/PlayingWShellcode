@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\PlayingWShellcode\PwSC.c" />
+    <ClCompile Include="HookMessageBox.cpp" />
     <ClCompile Include="HookVirtualAlloc.cpp" />
   </ItemGroup>
   <ItemGroup>
