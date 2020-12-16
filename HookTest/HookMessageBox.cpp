@@ -9,7 +9,7 @@ int __stdcall HookedMessageBox(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT 
 
 	// print intercepted values from the MessageBoxA function
 	std::cout << "Ohai from the hooked function\n";
-	std::cout << "Text: " << (LPCSTR)lpText << "\nCaption: " << (LPCSTR)lpCaption << std::endl;
+	std::cout << "Text: " << lpText << "\nCaption: " << lpCaption << std::endl;
 
 	// unpatch MessageBoxA
 	WriteProcessMemory(GetCurrentProcess(), (LPVOID)messageBoxAddress, messageBoxOriginalBytes, sizeof(messageBoxOriginalBytes), &bytesWritten);
