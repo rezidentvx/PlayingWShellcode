@@ -18,18 +18,19 @@ int __stdcall HookedMessageBox(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT 
 	return MessageBoxA(NULL, lpText, lpCaption, uType);
 }
 
-int HookMessageBox()
+int main()
 {
 	// show messagebox before hooking
 	MessageBoxA(NULL, "hi", "hi", MB_OK);
 
 	HINSTANCE library = LoadLibraryA("user32.dll");
-	SIZE_T bytesRead = 0;
+	if (!library) return 0;
 
 	// get address of the MessageBox function in memory
 	messageBoxAddress = GetProcAddress(library, "MessageBoxA");
 
 	// save the first 6 bytes of the original MessageBoxA function - will need for unhooking
+	SIZE_T bytesRead = 0;
 	ReadProcessMemory(GetCurrentProcess(), messageBoxAddress, messageBoxOriginalBytes, 6, &bytesRead);
 
 	// create a patch "push <address of new MessageBoxA); ret"

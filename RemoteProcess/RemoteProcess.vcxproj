@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{11d21c06-b0ed-4dc5-980a-10a8966d0a25}</ProjectGuid>
-    <RootNamespace>HookVirtualAlloc</RootNamespace>
+    <ProjectGuid>{e4defdde-5401-43ee-bc4c-4a6c850f8efa}</ProjectGuid>
+    <RootNamespace>RemoteProcess</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,15 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\HookVirtualAlloc\HookVirtualAlloc.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="HookVirtualAlloc.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HookLib\HookLib.vcxproj">
-      <Project>{133751a0-0d89-4b14-ad20-2ebb7ca85159}</Project>
-    </ProjectReference>
+    <ClCompile Include="RemoteProcess.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

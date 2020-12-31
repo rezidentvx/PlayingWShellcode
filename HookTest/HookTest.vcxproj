@@ -28,6 +28,7 @@
     <ProjectGuid>{8df392c3-8a56-4888-aa2f-e96710766f5c}</ProjectGuid>
     <RootNamespace>HookTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>MemPatchingBasics</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -10,12 +10,12 @@
 void RunSC(BYTE hex[]) {
     const char* buildString = __DATE__ ", " __TIME__;
     printf("[+] Compiled at: %s \n" \
-        "[+] Size of shellcode: %d \n" \
+        "[+] Size of shellcode: %ud \n" \
         "[+] Shellcode: ",
-        buildString, sizeof(hex));
-    for (int i = 0; i < sizeof(hex); i++) {
+        buildString, (UINT)sizeof(hex));
+    for (int i = 0; i < sizeof(hex); i++)
         printf("%02x", hex[i]);
-    } printf("\n");
+    printf("\n");
 
     void* exec = VirtualAlloc(0, sizeof(hex), MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
     if (exec == NULL) {
@@ -24,18 +24,18 @@ void RunSC(BYTE hex[]) {
     }
 
     printf("[+] Memory address: %p\n", exec);
-    printf("[+] Memory before shellcode load: "); 
 
-    for (int i = 0; i < sizeof(hex); i++) {
+    printf("[+] Memory before shellcode load: "); 
+    for (int i = 0; i < sizeof(hex); i++)
         printf("%02x", ((unsigned char*)exec)[i]);
-    } printf("\n");
+    printf("\n");
 
     memcpy(exec, hex, sizeof(hex));
 
     printf("[+] Memory after shellcode load:  ");
-    for (int i = 0; i < sizeof(hex); i++) {
+    for (int i = 0; i < sizeof(hex); i++)
         printf("%02x", ((unsigned char*)exec)[i]);
-    } printf("\n\n");
+    printf("\n\n");
 
     printf("[*] Setting PAGE_EXECUTE_READ...\n");
     DWORD dummy;
