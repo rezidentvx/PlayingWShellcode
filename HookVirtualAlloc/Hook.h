@@ -21,25 +21,21 @@
 
 #define assert(condition) ((void)0)
 
-class MemoryProtections
+namespace MemoryProtections
 {
-public:
-	std::map<DWORD, std::string> mProtects;
-	MemoryProtections() {
-		mProtects = {
-			{0x1, "PAGE_NOACCESS"},
-			{0x2, "PAGE_READONLY"},
-			{0x4, "PAGE_READWRITE"},
-			{0x8, "PAGE_WRITECOPY"},
-			{0x10, "PAGE_EXECUTE"},
-			{0x20, "PAGE_EXECUTE_READ"},
-			{0x40, "PAGE_EXECUTE_READWRITE"},
-			{0x80, "PAGE_EXECUTE_WRITECOPY"},
-			{0x100, "PAGE_GUARD"},
-			{0x200, "PAGE_NOCACHE"},
-			{0x400, "PAGE_WRITECOMBINE"},
-			{0x40000000, "PAGE_TARGETS_NO_UPDATE"}
-		};
+	std::map<DWORD, std::string> mProtects = {
+		{0x1, "PAGE_NOACCESS"},
+		{0x2, "PAGE_READONLY"},
+		{0x4, "PAGE_READWRITE"},
+		{0x8, "PAGE_WRITECOPY"},
+		{0x10, "PAGE_EXECUTE"},
+		{0x20, "PAGE_EXECUTE_READ"},
+		{0x40, "PAGE_EXECUTE_READWRITE"},
+		{0x80, "PAGE_EXECUTE_WRITECOPY"},
+		{0x100, "PAGE_GUARD"},
+		{0x200, "PAGE_NOCACHE"},
+		{0x400, "PAGE_WRITECOMBINE"},
+		{0x40000000, "PAGE_TARGETS_NO_UPDATE"}
 	};
 	std::string FlToStr(DWORD flProtect) {
 		std::string flags;

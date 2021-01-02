@@ -5,7 +5,6 @@
 #include "Hook.h"
 
 typedef LPVOID (CALLBACK* VIRTUALALLOC)(LPVOID, SIZE_T, DWORD, DWORD);
-MemoryProtections mp;
 LPVOID mem;
 LPVOID hookedvalloc;
 LPVOID targetmem = nullptr;
@@ -15,7 +14,7 @@ std::vector<BYTE> originalBytes;
 std::vector<BYTE> patch;
 
 LPVOID __stdcall HookedVirtualAlloc(LPVOID lpAddress, SIZE_T dwSize, DWORD flAllocationType, DWORD flProtect) {
-	std::cout << "[+] Intercepted alloc of " << dwSize << " bytes of " << mp.FlToStr(flProtect) << " at " << (lpAddress ? lpAddress : "(Any)") << std::endl;
+	std::cout << "[+] Intercepted alloc of " << dwSize << " bytes of " << MemoryProtections::FlToStr(flProtect) << " at " << (lpAddress ? lpAddress : "(Any)") << std::endl;
 	
 	LPVOID addr = 0;
 	if (htargetProcess == GetCurrentProcess()) {
@@ -57,8 +56,8 @@ bool CanPatch(LPVOID address, SIZE_T nbytes) {
 	MEMORY_BASIC_INFORMATION meminfo;
 	VirtualQueryEx(htargetProcess, &address, &meminfo, sizeof(meminfo));
 #ifdef _DEBUG
-	std::cout << "[*] Memory is set to: " << mp.FlToStr(meminfo.AllocationProtect) << " || " 
-										  << mp.FlToStr(meminfo.Protect) << std::endl;
+	std::cout << "[*] Memory is set to: " << MemoryProtections::FlToStr(meminfo.AllocationProtect) << " || "
+										  << MemoryProtections::FlToStr(meminfo.Protect) << std::endl;
 #endif
 	return !ReadBytes(address, nbytes).empty();
 }
@@ -66,7 +65,7 @@ bool CanPatch(LPVOID address, SIZE_T nbytes) {
 bool ApplyPatch() {
 	SSIZE_T hookoffset = (intptr_t)targetmem - (intptr_t)hookedvalloc;
 #ifdef _DEBUG
-	printf("[*] Offset is %02X\n", hookoffset);
+	printf("[*] Offset is %02X\n", (int)hookoffset);
 #endif
 	
 	if ((intptr_t)targetmem - hookoffset != (intptr_t)hookedvalloc)

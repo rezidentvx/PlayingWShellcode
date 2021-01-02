@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HookTest", "HookTest\HookTe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HookVirtualAlloc", "HookVirtualAlloc\HookVirtualAlloc.vcxproj", "{11D21C06-B0ED-4DC5-980A-10A8966D0A25}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DynamicInject", "DynamicInject\DynamicInject.vcxproj", "{5CA80216-9354-4D14-B35A-A1E4EF0F6112}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{11D21C06-B0ED-4DC5-980A-10A8966D0A25}.Release|x64.Build.0 = Release|x64
 		{11D21C06-B0ED-4DC5-980A-10A8966D0A25}.Release|x86.ActiveCfg = Release|Win32
 		{11D21C06-B0ED-4DC5-980A-10A8966D0A25}.Release|x86.Build.0 = Release|Win32
+		{5CA80216-9354-4D14-B35A-A1E4EF0F6112}.Debug|x64.ActiveCfg = Debug|x64
+		{5CA80216-9354-4D14-B35A-A1E4EF0F6112}.Debug|x64.Build.0 = Debug|x64
+		{5CA80216-9354-4D14-B35A-A1E4EF0F6112}.Debug|x86.ActiveCfg = Debug|Win32
+		{5CA80216-9354-4D14-B35A-A1E4EF0F6112}.Debug|x86.Build.0 = Debug|Win32
+		{5CA80216-9354-4D14-B35A-A1E4EF0F6112}.Release|x64.ActiveCfg = Release|x64
+		{5CA80216-9354-4D14-B35A-A1E4EF0F6112}.Release|x64.Build.0 = Release|x64
+		{5CA80216-9354-4D14-B35A-A1E4EF0F6112}.Release|x86.ActiveCfg = Release|Win32
+		{5CA80216-9354-4D14-B35A-A1E4EF0F6112}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
